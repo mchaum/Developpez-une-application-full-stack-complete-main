@@ -1,0 +1,15 @@
+<mat-toolbar class="custom-navbar" fxLayout="row" fxLayoutAlign="space-between center">
+    <ng-container *ngIf="$isLogged() | async">
+      <span class="navbar-logo" routerLink="/">
+        <img src="/assets/logo_p6.png" alt="logo" />
+      </span>
+      
+      <div class="navbar-links" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
+        <span routerLink="topics" class="link">Thèmes</span>
+        <span routerLink="posts" class="link">Articles</span>
+        <span (click)="logout()" class="link">Logout</span>
+      </div>
+    </ng-container>
+  </mat-toolbar>
+  
+  

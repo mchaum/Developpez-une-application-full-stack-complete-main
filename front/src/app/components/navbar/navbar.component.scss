@@ -1,0 +1,39 @@
+.custom-navbar {
+    background-color: transparent !important; 
+    border-bottom: 1px solid black; 
+    width: 100%; 
+    padding: 50px 20px;
+    box-sizing: border-box;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-logo img {
+    height: 100px; 
+    margin-bottom: 5px; 
+    margin-top: 5px; 
+  }  
+  
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    flex-grow: 1; 
+    gap: 10px;
+  }
+  
+  .navbar-links .link {
+    text-decoration: none; 
+    color: black; 
+    font-size: 16px; 
+    font-weight: 500; 
+    cursor: pointer;
+  }
+  
+  .navbar-links .link:hover {
+    text-decoration: underline;
+  }
+  

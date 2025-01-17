@@ -1,0 +1,32 @@
+<mat-toolbar class="custom-navbar" fxLayout="row" fxLayoutAlign="space-between center">
+  <span class="navbar-logo" routerLink="/">
+    <img src="/assets/logo_p6.png" alt="logo" />
+  </span>
+</mat-toolbar>
+
+<div class="back-arrow" routerLink="/">
+  <mat-icon>arrow_back</mat-icon>
+</div>
+
+<div class="register" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card fxLayout="column" >
+        <mat-card-header fxLayoutAlign="center center">
+            <mat-card-title>S'inscrire</mat-card-title>
+        </mat-card-header>
+        <form class="register-form" [formGroup]="form" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center center">
+            <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+                <mat-form-field fxFlex>
+                    <input matInput placeholder="Username" formControlName="username">
+                </mat-form-field>
+                <mat-form-field fxFlex>
+                    <input matInput placeholder="Email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field fxFlex>
+                    <input matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+            </mat-card-content>
+            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+            <span *ngIf="onError" class="error ml2">An error occurred</span>
+        </form>
+    </mat-card>
+</div>

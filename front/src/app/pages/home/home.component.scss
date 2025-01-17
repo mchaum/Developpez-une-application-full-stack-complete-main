@@ -1,7 +1,27 @@
 .center {
+  margin-top: 5%;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  gap: 5%;
   align-items: center;
   flex-direction: column;
+}
+
+img {
+  width: 49%;
+}
+
+.mat-raised-button {
+  border-radius: 8px;
+    border: solid black 1px;
+    font-size: 20px;
+    box-shadow: none;
+    padding: 5px 7%;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50%;
 }

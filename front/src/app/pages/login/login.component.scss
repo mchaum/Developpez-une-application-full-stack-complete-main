@@ -1,0 +1,82 @@
+.custom-navbar {
+    background-color: transparent !important;
+    border-bottom: 1px solid black;
+    width: 100%;
+    padding: 50px 20px;
+    box-sizing: border-box;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    height: 100px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.back-arrow {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 10px 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.back-arrow mat-icon {
+    font-size: 32px;
+    color: black;
+}
+
+.login {
+    height: calc(100vh - 200px);
+    /* Pour centrer le formulaire verticalement */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card {
+    width: 400px;
+    padding: 20px;
+}
+
+mat-card-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+mat-card-header {
+    justify-content: center;
+}
+
+.custom-form-field {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.custom-form-field label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.custom-form-field input {
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+}
+
+.custom-button {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-weight: bold;
+    width: 100%;
+}
