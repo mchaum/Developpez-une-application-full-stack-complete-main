@@ -5,9 +5,9 @@
       </span>
       
       <div class="navbar-links" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
-        <span routerLink="topics" class="link">Thèmes</span>
+        <span (click)="topics()" class="link">Thèmes</span>
         <span routerLink="posts" class="link">Articles</span>
-        <span (click)="logout()" class="link">Logout</span>
+        <span (click)="me()" class="link">Me</span>
       </div>
     </ng-container>
   </mat-toolbar>

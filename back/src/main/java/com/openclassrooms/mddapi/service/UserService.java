@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.openclassrooms.mddapi.model.User;
 import com.openclassrooms.mddapi.repository.UserRepository;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -42,5 +43,15 @@ public class UserService implements UserDetailsService {
         return userRepository.findById(id).orElseThrow(() -> 
             new UsernameNotFoundException("User not found with id: " + id)
         );
+    }
+    
+    @Transactional
+    public User updateUser(Long id, String username, String email) {
+        User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (username != null) user.setUsername(username);
+        if (email != null) user.setEmail(email);
+
+        return userRepository.save(user); 
     }
 }

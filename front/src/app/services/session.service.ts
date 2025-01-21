@@ -3,14 +3,15 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { SessionInformation } from '../interfaces/sessionInformation.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SessionService {
-
-  public isLogged = false;
+  private isLoggedSubject = new BehaviorSubject<boolean>(false);
   public sessionInformation: SessionInformation | undefined;
 
-  private isLoggedSubject = new BehaviorSubject<boolean>(this.isLogged);
+  constructor() {
+    this.checkInitialLoginState();
+  }
 
   public $isLogged(): Observable<boolean> {
     return this.isLoggedSubject.asObservable();
@@ -18,17 +19,26 @@ export class SessionService {
 
   public logIn(user: SessionInformation): void {
     this.sessionInformation = user;
-    this.isLogged = true;
-    this.next();
+    localStorage.setItem('authToken', user.token);
+    this.updateLoginState(true);
   }
 
   public logOut(): void {
     this.sessionInformation = undefined;
-    this.isLogged = false;
-    this.next();
+    localStorage.removeItem('authToken'); 
+    this.updateLoginState(false);
   }
 
-  private next(): void {
-    this.isLoggedSubject.next(this.isLogged);
+  private updateLoginState(isLogged: boolean): void {
+    this.isLoggedSubject.next(isLogged);
+  }
+
+  private checkInitialLoginState(): void {
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      this.updateLoginState(true);
+    } else {
+      this.updateLoginState(false);
+    }
   }
 }

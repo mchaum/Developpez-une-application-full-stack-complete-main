@@ -22,9 +22,12 @@ export class NavbarComponent {
     return this.sessionService.$isLogged();
   }
 
-  public logout(): void {
-    this.sessionService.logOut();
-    this.router.navigate(['/']);
+  public me(): void {
+    this.router.navigate(['/me']);
+  } 
+
+  public topics(): void {
+    this.router.navigate(['/topics']);
   }
 }
 

@@ -12,13 +12,18 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.openclassrooms.mddapi.DTO.UserUpdateRequestDTO;
 import com.openclassrooms.mddapi.model.User;
 import com.openclassrooms.mddapi.repository.UserRepository;
+import com.openclassrooms.mddapi.service.UserService;
 import com.openclassrooms.mddapi.security.JwtUtils;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -33,6 +38,7 @@ import lombok.extern.slf4j.Slf4j;
 public class AuthController {
 	
 	private final UserRepository userRepository;
+	private final UserService userService;
 	private final PasswordEncoder passwordEncoder;
 	private final JwtUtils jwtUtils;
 	private final AuthenticationManager authenticationManager;
@@ -83,5 +89,27 @@ public class AuthController {
 
 	    return ResponseEntity.ok(userInfo);
 	}
+	
+	@SecurityRequirement(name = "Bearer Authentication")
+	@PutMapping("/me")
+	public ResponseEntity<Map<String, String>> updateUser(
+	        Authentication authentication,
+	        @RequestBody UserUpdateRequestDTO updateRequest) {
+	    String emailFromToken = authentication.getName();
+	    try {
+	        Long userId = userService.findUserIdByEmail(emailFromToken);
+	        userService.updateUser(userId, updateRequest.getUsername(), updateRequest.getEmail());
+
+	        Map<String, String> response = new HashMap<>();
+	        response.put("message", "User data updated!");
+	        return ResponseEntity.ok(response);
+	    } catch (Exception e) {
+	        Map<String, String> errorResponse = new HashMap<>();
+	        errorResponse.put("message", "Error updating user");
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+	    }
+	}
+
+
 
 }

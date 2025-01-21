@@ -12,6 +12,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TopicsComponent } from './pages/topics/topics.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './AuthInterceptor';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MeComponent } from './pages/me/me.component';
+import { UserTopicsComponent } from './components/user-topics/user-topics.component';
 
 const materialModule = [
   MatButtonModule,
@@ -26,14 +33,21 @@ const materialModule = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     HomeComponent, 
     LoginComponent, 
     RegisterComponent,
+    TopicsComponent,
     NavbarComponent,
+    UserFormComponent, 
+    UserTopicsComponent,
+    MeComponent,
     ...materialModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
