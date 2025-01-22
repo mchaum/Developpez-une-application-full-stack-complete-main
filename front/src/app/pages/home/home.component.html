@@ -6,3 +6,6 @@
   </div>
 </div>
 <app-navbar></app-navbar>
+<ng-container *ngIf="$isLogged() | async">
+  <app-articles></app-articles>
+</ng-container>

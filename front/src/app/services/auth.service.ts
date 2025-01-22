@@ -4,6 +4,7 @@ import { Observable, tap } from 'rxjs';
 import { RegisterRequest } from '../interfaces/registerRequest.interface';
 import { LoginRequest } from '../interfaces/loginRequest.interface';
 import { SessionInformation } from '../interfaces/sessionInformation.interface';
+import { User } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,10 @@ export class AuthService {
   public getToken(): string | null {
     return localStorage.getItem('authToken');
   }
+
+  public getLoggedInUserInfo(): Observable<User> {
+    return this.httpClient.get<User>(`${this.pathService}/me`);
+  }
+  
 }
 

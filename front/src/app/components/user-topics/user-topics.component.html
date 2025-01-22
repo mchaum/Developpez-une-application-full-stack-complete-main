@@ -1,3 +1,17 @@
 <div class="topics">
-    Abonnements
-</div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Abonnements</mat-card-title>
+          </mat-card-header>
+      <div class="items mt2">
+        <mat-card class="item" *ngFor="let topic of subscribedTopics">
+          <mat-card-title>{{ topic.title }}</mat-card-title>
+          <mat-card-content>
+            <p>Description: {{ topic.description }}</p>
+          </mat-card-content>
+          <button mat-raised-button (click)="unsubscribe(topic.id)">Se désabonner</button>
+        </mat-card>
+      </div>
+    </mat-card>
+  </div>
+  

@@ -19,6 +19,9 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MeComponent } from './pages/me/me.component';
 import { UserTopicsComponent } from './components/user-topics/user-topics.component';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticleFormComponent } from './pages/article-form/article-form.component';
+import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
 
 const materialModule = [
   MatButtonModule,
@@ -43,6 +46,10 @@ const materialModule = [
     UserFormComponent, 
     UserTopicsComponent,
     MeComponent,
+    ArticleFormComponent,
+    ArticlesComponent,
+    ArticleFormComponent,
+    ArticleDetailComponent,
     ...materialModule
   ],
   providers: [

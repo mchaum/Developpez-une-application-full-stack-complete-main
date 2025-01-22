@@ -1,4 +1,4 @@
-.topics {
+.articles {
     .items {
         display: flex;
         flex-wrap: wrap;
@@ -27,28 +27,15 @@
 
                 p {
                     margin: 0;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 5;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
                 }
 
                 .description-label {
                     display: block;
                     margin-bottom: 0.5rem;
-                }
-            }
-
-            button {
-                background-color: #6a1b9a;
-                color: #fff;
-                font-weight: bold;
-                border-radius: 8px;
-                padding: 0.5rem 1rem;
-                border: none;
-                font-size: 1rem;
-                cursor: pointer;
-                align-self: center;
-                text-transform: none;
-
-                &:hover {
-                    background-color: #4a148c;
                 }
             }
         }

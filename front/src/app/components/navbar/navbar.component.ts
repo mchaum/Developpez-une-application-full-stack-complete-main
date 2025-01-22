@@ -29,5 +29,9 @@ export class NavbarComponent {
   public topics(): void {
     this.router.navigate(['/topics']);
   }
+
+  public home(): void {
+    this.router.navigate(['/']);
+  }
 }
 

@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { ArticlesComponent } from 'src/app/components/articles/articles.component';
 import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { SessionService } from 'src/app/services/session.service';
@@ -27,6 +28,7 @@ import { SessionService } from 'src/app/services/session.service';
     MatToolbarModule,
     CommonModule,
     NavbarComponent,
+    ArticlesComponent,
     HttpClientModule
   ],
   templateUrl: './home.component.html',
