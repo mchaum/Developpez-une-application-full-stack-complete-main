@@ -15,4 +15,14 @@ export class ArticleService {
   getAllArticles(): Observable<Article[]> {
     return this.http.get<Article[]>(this.apiUrl);
   }
+
+  getArticleById(id: number): Observable<Article> {
+    return this.http.get<Article>(`${this.apiUrl}/${id}`);
+  }
+
+  createArticle(article: Partial<Article>): Observable<Article> {
+    return this.http.post<Article>(this.apiUrl, article);
+  }
+  
+  
 }

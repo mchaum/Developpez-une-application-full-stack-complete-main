@@ -22,6 +22,7 @@ import { UserTopicsComponent } from './components/user-topics/user-topics.compon
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleFormComponent } from './pages/article-form/article-form.component';
 import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
+import { CommentsAreaComponent } from './components/comments-area/comments-area.component';
 
 const materialModule = [
   MatButtonModule,
@@ -32,7 +33,7 @@ const materialModule = [
 ]
 
 @NgModule({
-  declarations: [ AppComponent],
+  declarations: [ AppComponent, CommentsAreaComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

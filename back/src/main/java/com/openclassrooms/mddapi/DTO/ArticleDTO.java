@@ -11,6 +11,7 @@ public class ArticleDTO {
     private Long userId;
     private Long themeId;
     private String themeName;
+    private String authorName;
     private LocalDateTime createdAt;
 }
 

@@ -6,4 +6,5 @@ export interface Article {
     user_id: number;
     theme_id: number;
     themeName: string;
+    authorName: string;
 }
