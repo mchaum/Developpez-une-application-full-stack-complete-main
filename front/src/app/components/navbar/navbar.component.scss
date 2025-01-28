@@ -22,7 +22,7 @@
     align-items: center;
     justify-content: flex-end; 
     flex-grow: 1; 
-    gap: 10px;
+    gap: 2%;
   }
   
   .navbar-links .link {
@@ -32,8 +32,34 @@
     font-weight: 500; 
     cursor: pointer;
   }
-  
-  .navbar-links .link:hover {
-    text-decoration: underline;
+
+  .navbar-links .active-link {
+    color: #7763C5;
   }
+ 
+  
+  .user-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #ccc; 
+    border-radius: 50%; 
+    cursor: pointer;
+  }
+  
+  .user-icon img {
+    width: 50%; 
+    height: auto;
+  }
+
+  .user-icon.active {
+    border: 2px solid #7763C5;
+  }
+  
+  .user-icon.active img {
+    filter: invert(25%) sepia(100%) saturate(500%) brightness(80%) hue-rotate(220deg) contrast(2);
+  }  
+  
   

@@ -4,25 +4,23 @@ import { Observable } from 'rxjs';
 import { Article } from '../interfaces/article.interface';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ArticleService {
 
-  private readonly apiUrl = '/api/articles';
+    private readonly apiUrl = '/api/articles';
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-  getAllArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(this.apiUrl);
-  }
+    getAllArticles(sort: string): Observable<Article[]> {
+        return this.http.get<Article[]>(`${this.apiUrl}?sort=${sort}`);
+    }
 
-  getArticleById(id: number): Observable<Article> {
-    return this.http.get<Article>(`${this.apiUrl}/${id}`);
-  }
+    getArticleById(id: number): Observable<Article> {
+        return this.http.get<Article>(`${this.apiUrl}/${id}`);
+    }
 
-  createArticle(article: Partial<Article>): Observable<Article> {
-    return this.http.post<Article>(this.apiUrl, article);
-  }
-  
-  
+    createArticle(article: Partial<Article>): Observable<Article> {
+        return this.http.post<Article>(this.apiUrl, article);
+    }
 }

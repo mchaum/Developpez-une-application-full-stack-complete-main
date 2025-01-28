@@ -8,7 +8,10 @@
                 <mat-card-content>
                     <p>Description: {{ topic.description }}</p>
                 </mat-card-content>
-                <button mat-raised-button (click)="subscribe(topic.id)" [disabled]="isSubscribed(topic.id)">
+                <button mat-raised-button 
+                        (click)="subscribe(topic.id)" 
+                        [disabled]="isSubscribed(topic.id)"
+                        [ngClass]="{'subscribed': isSubscribed(topic.id)}">
                     {{ isSubscribed(topic.id) ? 'Abonné' : 'S\'abonner' }}
                 </button>
 

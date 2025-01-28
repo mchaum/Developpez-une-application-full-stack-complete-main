@@ -25,3 +25,13 @@ img {
   justify-content: space-around;
   width: 50%;
 }
+
+@media only screen and (max-device-width : 768px){
+  .btn-container {
+    flex-direction: column;
+  }
+
+  button {
+    margin-bottom: 10%;
+}
+  }

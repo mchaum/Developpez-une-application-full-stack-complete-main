@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AuthService } from 'src/app/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { SessionService } from 'src/app/services/session.service';
 import { LoginRequest } from 'src/app/interfaces/loginRequest.interface';
 import { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';
@@ -26,6 +26,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatToolbarModule,
     ReactiveFormsModule,
     CommonModule,
+    RouterLink,
     HttpClientModule
   ],
   templateUrl: './login.component.html',

@@ -6,6 +6,7 @@ import com.openclassrooms.mddapi.service.ArticleService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -20,10 +21,12 @@ public class ArticleController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ArticleDTO>> findAll() {
-        List<ArticleDTO> articles = articleService.findAll();
+    public ResponseEntity<List<ArticleDTO>> findAll(@RequestParam(defaultValue = "desc") String sort) {
+        Sort order = sort.equals("asc") ? Sort.by("createdAt").ascending() : Sort.by("createdAt").descending();
+        List<ArticleDTO> articles = articleService.findAll(order);
         return ResponseEntity.ok(articles);
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<ArticleDTO> findById(@PathVariable Long id) {
@@ -43,4 +46,6 @@ public class ArticleController {
             return ResponseEntity.badRequest().body(null);
         }
     }
+    
+    
 }

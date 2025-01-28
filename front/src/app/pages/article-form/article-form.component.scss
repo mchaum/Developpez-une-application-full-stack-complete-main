@@ -5,7 +5,7 @@
 }
 
 .article-form mat-select {
-    border: 1px solid #6a1b9a;
+    border: 1px solid #7763C5;
     border-radius: 8px;
     padding: 10px;
     width: 100%;
@@ -31,7 +31,7 @@
 }
 
 .article-form textarea {
-    border: 1px solid #6a1b9a;
+    border: 1px solid #7763C5;
     border-radius: 8px;
     padding: 10px;
     width: 100%;
@@ -63,7 +63,7 @@ mat-card-content {
 
 .article-form input, 
 .article-form textarea {
-    border: 1px solid #6a1b9a;
+    border: 1px solid #7763C5;
     border-radius: 8px;
     padding: 10px;
     width: 100%;
@@ -71,8 +71,8 @@ mat-card-content {
 }
 
 .article-form button {
-    background-color: #6a1b9a;
-    color: #fff;
+    background-color: #7763C5;
+    color: #f5f5f5;
     font-weight: bold;
     border-radius: 8px;
     padding: 0.5rem 1rem;
@@ -110,11 +110,10 @@ mat-card-content {
 }
 
 ::ng-deep .mat-form-field-label {
-    position: static !important; 
     font-size: 16px;
     line-height: normal;
-    color: rgba(0, 0, 0, 0.6);  
-    transform: none !important;  
+    color: rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s, color 0.2s cubic-bezier(0.4, 0.0, 0.2, 1); 
 }
 
 ::ng-deep .mat-select-placeholder, 
@@ -136,6 +135,27 @@ mat-card-content {
 
 ::ng-deep .mat-form-field .mat-form-field-label {
     line-height: 40px;
+    padding-left: 2%;
 }
 
+::ng-deep .mat-form-field-flex {
+    align-items: baseline;
+}
 
+::ng-deep .mat-form-field-infix {
+    height: auto; 
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+::ng-deep textarea.mat-input-element {
+    text-align: left;
+    vertical-align: top;
+}
+
+::ng-deep textarea::placeholder {
+    text-align: left;
+    vertical-align: top;
+    padding-left: 5%;
+}

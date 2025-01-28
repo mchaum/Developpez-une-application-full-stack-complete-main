@@ -6,7 +6,7 @@
   
   <div class="back-arrow" routerLink="/">
     <mat-icon>arrow_back</mat-icon>
-  </div>
+</div>
   
   <div class="login" fxLayout="row" fxLayoutAlign="center center">
     <mat-card>
@@ -27,15 +27,6 @@
               formControlName="password"
               id="password"
             />
-            <button
-              mat-icon-button
-              matSuffix
-              (click)="hide = !hide"
-              [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hide"
-            >
-              <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-            </button>
           </div>
         </mat-card-content>
         <button class="custom-button" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">

@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
-import { UserFormComponent } from 'src/app/components/user-form/user-form.component';
+import { UserFormComponent } from 'src/app/components/me-form/user-form.component';
 import { UserTopicsComponent } from 'src/app/components/user-topics/user-topics.component';
 
 @Component({

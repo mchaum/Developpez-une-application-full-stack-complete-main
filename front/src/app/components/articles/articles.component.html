@@ -1,7 +1,13 @@
-<div>
-    <button mat-raised-button color="primary" [routerLink]="'/article/new'">
-        + Créer un article
+<div class="articles-btn">
+    <button mat-raised-button [routerLink]="'/article/new'">
+        Créer un article
     </button>
+    <div class="sort-button">
+        <button mat-icon-button (click)="toggleSortOrder()">
+          Trier par date
+          <mat-icon>{{ sortOrder === 'desc' ? 'arrow_downward' : 'arrow_upward' }}</mat-icon>
+        </button>
+      </div>
 </div>
 
 <div class="articles">
@@ -10,8 +16,10 @@
             <mat-card class="item" *ngFor="let article of (articles$ | async)" (click)="goToArticle(article.id)">
                 <mat-card-title>{{ article.title }}</mat-card-title>
                 <mat-card-content>
+                    <div class="article-info">
                     <span class="description-label">{{ article.createdAt }}</span>
                     <span class="description-label">{{ article.themeName }}</span>
+                </div>
                     <p>Content : {{ article.description }}</p>
                 </mat-card-content>
             </mat-card>

@@ -3,20 +3,21 @@
 <mat-card class="article" *ngIf="article">
 
     <div class="title-area">
-      <div class="back-arrow" routerLink="/">
-        <mat-icon>arrow_back</mat-icon>
-      </div>
-      <mat-card-title>{{ article.title }}</mat-card-title>
+        <div class="back-arrow" routerLink="/">
+            <mat-icon>arrow_back</mat-icon>
+        </div>
+        <mat-card-title>{{ article.title }}</mat-card-title>
     </div>
-  
+
     <mat-card-content>
-      <div class="article-info">
-        <span class="description-label">Date : {{ article.createdAt }}</span>
-        <span class="description-label">Auteur : {{ article.authorName }}</span>
-        <span class="description-label">Thème : {{ article.themeName }}</span>
-      </div>
-      <p>Content : {{ article.description }}</p>
+        <div class="article-info">
+            <span class="description-label">Date : {{ article.createdAt }}</span>
+            <span class="description-label">Auteur : {{ article.authorName }}</span>
+            <span class="description-label">Thème : {{ article.themeName }}</span>
+        </div>
+        <p>Content : {{ article.description }}</p>
     </mat-card-content>
-  
-  </mat-card>
-  
+
+</mat-card>
+
+<div class="line"></div>

@@ -1,15 +1,17 @@
 <mat-toolbar class="custom-navbar" fxLayout="row" fxLayoutAlign="space-between center">
-    <ng-container *ngIf="$isLogged() | async">
-      <span class="navbar-logo" routerLink="/">
-        <img src="/assets/logo_p6.png" alt="logo" />
+  <ng-container *ngIf="$isLogged() | async">
+    <span class="navbar-logo" routerLink="/">
+      <img src="/assets/logo_p6.png" alt="logo" />
+    </span>
+
+    <div class="navbar-links" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
+      <span routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+        class="link">Articles</span>
+      <span routerLink="/topics" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+        class="link">Thèmes</span>
+      <span (click)="me()" class="link user-icon" [routerLinkActive]="['active']" routerLink="/me">
+        <img src="/assets/icon_user.svg" alt="User Icon" />
       </span>
-      
-      <div class="navbar-links" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
-        <span (click)="topics()" class="link">Thèmes</span>
-        <span (click)="home()" class="link">Articles</span>
-        <span (click)="me()" class="link">Me</span>
-      </div>
-    </ng-container>
-  </mat-toolbar>
-  
-  
+    </div>
+  </ng-container>
+</mat-toolbar>

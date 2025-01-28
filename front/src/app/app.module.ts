@@ -15,7 +15,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TopicsComponent } from './pages/topics/topics.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './AuthInterceptor';
-import { UserFormComponent } from './components/user-form/user-form.component';
+import { UserFormComponent } from './components/me-form/user-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MeComponent } from './pages/me/me.component';
 import { UserTopicsComponent } from './components/user-topics/user-topics.component';

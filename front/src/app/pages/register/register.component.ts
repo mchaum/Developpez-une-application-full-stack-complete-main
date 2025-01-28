@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { RegisterRequest } from 'src/app/interfaces/registerRequest.interface';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -24,6 +24,7 @@ import { AuthService } from 'src/app/services/auth.service';
     MatToolbarModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterLink,
     CommonModule
   ],
   templateUrl: './register.component.html',
@@ -32,6 +33,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterComponent {
 
   public onError = false;
+  public hide = true;
 
   public form = this.fb.group({
     email: [

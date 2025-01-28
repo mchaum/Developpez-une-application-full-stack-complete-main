@@ -17,5 +17,4 @@ public class TopicService {
         return topicRepository.findAll(); 
     }
 
-
 }

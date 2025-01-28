@@ -13,8 +13,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Sort;
+
 @Service
 public class ArticleService {
+
     private final ArticleRepository articleRepository;
     private final UserRepository userRepository;
     private final TopicRepository topicRepository;
@@ -25,8 +28,8 @@ public class ArticleService {
         this.topicRepository = topicRepository;
     }
 
-    public List<ArticleDTO> findAll() {
-        return articleRepository.findAll().stream()
+    public List<ArticleDTO> findAll(Sort sort) {
+        return articleRepository.findAll(sort).stream()
                 .map(this::toDTO)
                 .collect(Collectors.toList());
     }
@@ -72,3 +75,4 @@ public class ArticleService {
         return article;
     }
 }
+

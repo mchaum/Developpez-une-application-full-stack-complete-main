@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SessionService } from '../../services/session.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     MatToolbarModule,
     CommonModule,
+    RouterLink,
+    RouterLinkActive
   ],
 })
 export class NavbarComponent {
