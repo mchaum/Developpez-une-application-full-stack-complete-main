@@ -1,1 +1,28 @@
-<p>comments-area works!</p>
+<mat-card class="comments-area">
+    <mat-card-header>
+        <mat-card-title>Commentaires</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="comments">
+        <div class="items mt2">
+            <mat-card class="item" *ngFor="let comment of comments">
+                <mat-card-header>
+                    <mat-card-title>{{ comment.username }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="content">
+                    <p>{{ comment.description }}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="new-comment-form">
+            <mat-form-field floatLabel="never">
+                <textarea matInput [(ngModel)]="newComment" rows="5" placeholder="Écrivez ici votre commentaire"></textarea>
+            </mat-form-field>
+            <button mat-icon-button color="primary" (click)="postComment()">
+                <mat-icon>send</mat-icon>
+            </button>
+        </div>
+        
+    </mat-card-content>
+</mat-card>

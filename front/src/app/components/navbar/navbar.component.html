@@ -4,14 +4,33 @@
       <img src="/assets/logo_p6.png" alt="logo" />
     </span>
 
+    <!-- Navbar écrans larges -->
     <div class="navbar-links" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
-      <span routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
-        class="link">Articles</span>
-      <span routerLink="/topics" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
-        class="link">Thèmes</span>
+      <span routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="link">Articles</span>
+      <span routerLink="/topics" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="link">Thèmes</span>
       <span (click)="me()" class="link user-icon" [routerLinkActive]="['active']" routerLink="/me">
         <img src="/assets/icon_user.svg" alt="User Icon" />
       </span>
+    </div>
+
+     <!-- Icône Burger Menu (responsive)  -->
+     <div class="burger-menu" (click)="toggleMenu()">
+      <span class="burger-icon"></span>
+      <span class="burger-icon"></span>
+      <span class="burger-icon"></span>
+    </div>
+
+    <!-- Navbar responsive menu -->
+    <div class="sidebar" [class.open]="menuOpen">
+      <div class="sidebar-links">
+        <div class="sidebar-articles-topics">
+        <span routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="link">Articles</span>
+        <span routerLink="/topics" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="link">Thèmes</span>
+      </div>
+        <span (click)="me()" class="link user-icon" [routerLinkActive]="['active']" routerLink="/me">
+          <img src="/assets/icon_user.svg" alt="User Icon" />
+        </span>
+      </div>
     </div>
   </ng-container>
 </mat-toolbar>

@@ -1,0 +1,156 @@
+.comments-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .comments {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1%;
+  }
+
+  .items {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .item {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 15px;
+
+    mat-card-header {
+      margin-bottom: 10px;
+    }
+
+    mat-card-content {
+      background-color: #EEEEEE;
+      margin-bottom: 10px;
+      width: 50%;
+      border-radius: 8px;
+      padding: 2%;
+    }
+
+    mat-card-title {
+      font-size: 15px;
+      font-weight: normal;
+    }
+  }
+
+  .new-comment-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+  }
+
+  mat-form-field {
+    flex: 1;
+    max-width: 80%;
+  }
+
+  ::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+
+  textarea {
+    border: 1px solid #7763C5;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .new-comment-form textarea {
+    border: 1px solid #7763C5;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    min-height: 100px;
+  }
+
+  .new-comment-form textarea::placeholder {
+    text-align: left;
+    vertical-align: top;
+    padding-left: 10px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  button {
+    position: absolute;
+    right: 5%;
+    margin-left: 0;
+  }
+
+  ::ng-deep .mat-form-field-label-wrapper {
+    display: flex;
+    align-items: center;  
+    justify-content: flex-start;  
+    height: 100%; 
+    box-sizing: border-box; 
+    padding-left: 10px; 
+}
+
+::ng-deep .mat-form-field .mat-form-field-label {
+  line-height: 30px;
+  padding-left: 1%;
+}
+
+::ng-deep .mat-form-field-flex {
+  align-items: baseline;
+}
+
+::ng-deep .mat-form-field-infix {
+  height: auto; 
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+
+@media (max-width : 768px) {
+
+  .comments-area {
+    .item {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 100%;
+
+      mat-card-content {
+        background-color: #fff;
+      }
+    }
+
+    mat-card-title {
+      align-self: flex-end;
+    }
+
+    .content {
+      align-self: flex-start;
+    }
+
+    button {
+      right: 10%;
+    }
+  }
+
+}

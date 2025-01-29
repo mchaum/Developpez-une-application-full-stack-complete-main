@@ -1,55 +1,47 @@
 <mat-toolbar class="custom-navbar" fxLayout="row" fxLayoutAlign="space-between center">
     <span class="navbar-logo" routerLink="/">
-      <img src="/assets/logo_p6.png" alt="logo" />
+        <img src="/assets/logo_p6.png" alt="logo" />
     </span>
-  </mat-toolbar>
-  
-  <div class="back-arrow" routerLink="/">
+</mat-toolbar>
+
+<div class="back-arrow" routerLink="/">
     <mat-icon>arrow_back</mat-icon>
-  </div>
-  
-  <div class="register" fxLayout="row" fxLayoutAlign="center center">
+</div>
+
+<div class="register" fxLayout="row" fxLayoutAlign="center center">
     <mat-card>
-      <mat-card-header fxLayoutAlign="center center">
-        <mat-card-title>S'inscrire</mat-card-title>
-      </mat-card-header>
-      <form
-        class="register-form"
-        [formGroup]="form"
-        (ngSubmit)="submit()"
-        fxLayout="column"
-        fxLayoutAlign="center center"
-      >
-        <mat-card-content fxLayout="column" fxLayoutAlign="center center">
-          <div class="custom-form-field" fxFlex>
-            <label for="username">Nom d'utilisateur</label>
-            <input matInput id="username" formControlName="username" />
-          </div>
-          <div class="custom-form-field" fxFlex>
-            <label for="email">Email</label>
-            <input matInput id="email" formControlName="email" />
-          </div>
-          <div class="custom-form-field" fxFlex>
-            <label for="password">Mot de passe</label>
-            <input
-              matInput
-              id="password"
-              [type]="hide ? 'password' : 'text'"
-              formControlName="password"
-            />
-          </div>
-        </mat-card-content>
-        <button
-          class="custom-button"
-          mat-raised-button
-          color="primary"
-          type="submit"
-          [disabled]="form.invalid"
-        >
-          S'inscrire
-        </button>
-        <p *ngIf="onError" class="error">Une erreur s'est produite</p>
-      </form>
+        <mat-card-header fxLayoutAlign="center center">
+            <mat-card-title>S'inscrire</mat-card-title>
+        </mat-card-header>
+        <form class="register-form" [formGroup]="form" (ngSubmit)="submit()" fxLayout="column"
+            fxLayoutAlign="center center">
+            <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+                <div class="custom-form-field" fxFlex>
+                    <label for="username">Nom d'utilisateur</label>
+                    <input matInput id="username" formControlName="username" />
+                </div>
+                <div class="custom-form-field" fxFlex>
+                    <label for="email">Email</label>
+                    <input matInput id="email" formControlName="email" />
+                </div>
+                <div class="custom-form-field" fxFlex>
+                    <label for="password">Mot de passe</label>
+                    <input matInput id="password" [type]="hide ? 'password' : 'text'" formControlName="password" />
+                    <p *ngIf="form.get('password')?.errors?.['required'] && form.get('password')?.touched" class="error">
+                        Mot de passe requis.
+                      </p>
+                      <p *ngIf="form.get('password')?.errors?.['minlength'] && form.get('password')?.touched" class="error">
+                        Doit contenir au moins 8 caractères.
+                      </p>
+                      <p *ngIf="form.get('password')?.errors?.['pattern'] && form.get('password')?.touched" class="error">
+                        Doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial (&#64;$!%*?&).
+                      </p>                   
+                </div>
+            </mat-card-content>
+            <button class="custom-button" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+                S'inscrire
+            </button>
+            <p *ngIf="onError" class="error">Une erreur s'est produite</p>
+        </form>
     </mat-card>
-  </div>
-  
+</div>

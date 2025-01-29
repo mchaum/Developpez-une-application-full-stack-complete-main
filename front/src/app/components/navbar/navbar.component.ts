@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SessionService } from '../../services/session.service';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
@@ -19,6 +19,24 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent {
   constructor(private sessionService: SessionService, private router: Router) {}
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  // Ferme le menu si un clic se fait à l'extérieur //
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: MouseEvent) {
+    const sidebar = document.querySelector('.sidebar');
+    const burgerMenu = document.querySelector('.burger-menu');
+    const clickedInsideSidebar = sidebar?.contains(event.target as Node);
+    const clickedInsideBurgerMenu = burgerMenu?.contains(event.target as Node);
+
+    if (!clickedInsideSidebar && !clickedInsideBurgerMenu) {
+      this.menuOpen = false;
+    }
+  }
 
   public $isLogged(): Observable<boolean> {
     return this.sessionService.$isLogged();

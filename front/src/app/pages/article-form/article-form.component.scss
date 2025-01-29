@@ -58,7 +58,7 @@ mat-card-content {
     margin-bottom: 0;
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 95%;
 }
 
 .article-form input, 
@@ -158,4 +158,10 @@ mat-card-content {
     text-align: left;
     vertical-align: top;
     padding-left: 5%;
+}
+
+@media (max-width : 768px) {
+    .article-form mat-card {
+        width: 90%;
+    }
 }

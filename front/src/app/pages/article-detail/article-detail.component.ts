@@ -11,6 +11,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 import { Article } from 'src/app/interfaces/article.interface';
 import { ArticleService } from 'src/app/services/article.service';
+import { CommentsAreaComponent } from "../../components/comments-area/comments-area.component";
 
 @Component({
   selector: 'app-article-detail',
@@ -25,8 +26,9 @@ import { ArticleService } from 'src/app/services/article.service';
     CommonModule,
     HttpClientModule,
     RouterLink,
-    NavbarComponent
-  ],
+    NavbarComponent,
+    CommentsAreaComponent
+],
   templateUrl: './article-detail.component.html',
   styleUrls: ['./article-detail.component.scss']
 })

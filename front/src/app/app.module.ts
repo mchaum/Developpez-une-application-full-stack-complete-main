@@ -33,7 +33,7 @@ const materialModule = [
 ]
 
 @NgModule({
-  declarations: [ AppComponent, CommentsAreaComponent],
+  declarations: [ AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -51,6 +51,7 @@ const materialModule = [
     ArticlesComponent,
     ArticleFormComponent,
     ArticleDetailComponent,
+    CommentsAreaComponent,
     ...materialModule
   ],
   providers: [

@@ -38,6 +38,10 @@ export class AuthService {
   public getLoggedInUserInfo(): Observable<User> {
     return this.httpClient.get<User>(`${this.pathService}/me`);
   }
+
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('authToken');
+  }
   
 }
 
