@@ -14,4 +14,8 @@ export class CommentsService {
   getCommentsByArticleId(articleId: number): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.apiUrl}/${articleId}`);
   }
+
+  addComment(commentData: { description: string, articleId: number }): Observable<Comment> {
+    return this.http.post<Comment>(this.apiUrl, commentData);
+  }
 }

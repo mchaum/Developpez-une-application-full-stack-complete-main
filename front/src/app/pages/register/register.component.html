@@ -41,7 +41,7 @@
             <button class="custom-button" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
                 S'inscrire
             </button>
-            <p *ngIf="onError" class="error">Une erreur s'est produite</p>
+            <p *ngIf="onError" class="error">{{ onError }}</p>
         </form>
     </mat-card>
 </div>

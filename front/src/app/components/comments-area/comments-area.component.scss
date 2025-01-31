@@ -52,6 +52,15 @@
     margin-top: 20px;
     width: 100%;
     position: relative;
+
+    form {
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+    }
   }
 
   mat-form-field {

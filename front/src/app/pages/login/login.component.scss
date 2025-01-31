@@ -82,3 +82,9 @@ mat-card-header {
 .mat-card:not([class*=mat-elevation-z]) {
     box-shadow: none;
 }
+
+.error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+  }

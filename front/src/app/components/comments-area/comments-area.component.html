@@ -15,14 +15,19 @@
             </mat-card>
         </div>
 
+
         <div class="new-comment-form">
+            <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
             <mat-form-field floatLabel="never">
-                <textarea matInput [(ngModel)]="newComment" rows="5" placeholder="Écrivez ici votre commentaire"></textarea>
+                <textarea matInput formControlName="description" rows="5"
+                    placeholder="Écrivez ici votre commentaire"></textarea>
             </mat-form-field>
-            <button mat-icon-button color="primary" (click)="postComment()">
+            <button mat-icon-button color="primary" [disabled]="commentForm.invalid || isSubmitting">
                 <mat-icon>send</mat-icon>
             </button>
+            </form>
         </div>
-        
+
+
     </mat-card-content>
 </mat-card>

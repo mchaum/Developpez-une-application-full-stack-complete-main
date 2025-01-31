@@ -32,7 +32,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent {
 
-  public onError = false;
+  public onError: string | null = null;
   public hide = true;
 
   public form = this.fb.group({
@@ -69,8 +69,14 @@ export class RegisterComponent {
   public submit(): void {
     const registerRequest = this.form.value as RegisterRequest;
     this.authService.register(registerRequest).subscribe({
-        next: (_: void) => this.router.navigate(['/login']),
-        error: _ => this.onError = true,
+        next: () => this.router.navigate(['/login']),
+        error: (error) => {
+          if (error.status === 504) { 
+            this.onError = "Cet email est déjà utilisé.";
+          } else {
+            this.onError = "Une erreur s'est produite. Veuillez réessayer.";
+          }
+        },
       }
     );
   }

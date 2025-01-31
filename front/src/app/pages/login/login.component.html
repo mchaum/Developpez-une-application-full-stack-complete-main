@@ -29,10 +29,10 @@
             />
           </div>
         </mat-card-content>
+        <p *ngIf="onError" class="error">Email ou mot de passe incorrect.</p>
         <button class="custom-button" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
           Se connecter
         </button>
-        <p *ngIf="onError" class="error">An error occurred</p>
       </form>
     </mat-card>
   </div>  

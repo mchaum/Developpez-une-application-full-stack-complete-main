@@ -30,7 +30,6 @@ public class JwtFilter extends OncePerRequestFilter {
 	        throws ServletException, IOException {
 	    String requestPath = request.getRequestURI();
 
-	    // Exclure certains endpoints
 	    if (requestPath.startsWith("/swagger-ui") || 
 	        requestPath.startsWith("/v3/api-docs") || 
 	        requestPath.equals("/error") || 
@@ -48,7 +47,7 @@ public class JwtFilter extends OncePerRequestFilter {
 	        return;
 	    }
 
-	    String jwt = authHeader.substring(7); // Remove "Bearer " prefix
+	    String jwt = authHeader.substring(7);
 	    String email = null;
 
 	    try {

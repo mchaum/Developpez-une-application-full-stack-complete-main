@@ -40,19 +40,17 @@ public class CommentService {
 
     public CommentDTO toDTO(Comment comment) {
         CommentDTO dto = new CommentDTO();
-        dto.setId(comment.getId());
-        dto.setDescription(comment.getDescription());
-        dto.setCreatedAt(comment.getCreatedAt());
         dto.setUserId(comment.getUser().getId());
-        dto.setUsername(comment.getUser().getUsername()); 
+        dto.setUsername(comment.getUser().getUsername());
         dto.setArticleId(comment.getArticle().getId());
+        dto.setDescription(comment.getDescription());
         return dto;
     }
 
     private Comment toEntity(CommentDTO dto) {
         Comment comment = new Comment();
         comment.setDescription(dto.getDescription());
-        comment.setCreatedAt(dto.getCreatedAt() != null ? dto.getCreatedAt() : LocalDateTime.now());
+        comment.setCreatedAt(LocalDateTime.now());
 
         User user = userRepository.findById(dto.getUserId())
                 .orElseThrow(() -> new RuntimeException("Utilisateur avec ID " + dto.getUserId() + " non trouvé"));
